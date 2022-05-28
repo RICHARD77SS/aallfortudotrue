@@ -60,34 +60,40 @@
                 <h2>Music Player</h2>
                 <div class="music-player">
                     <div class="music__conteiner">
-                        <img src="" alt="" class="banner">
+                        <div id="card__img" class="card__img"></div>
                         <div class="music__info">
-                            <h3 class="music__title">Title</h3>
-                            <p class="music__author">Author</p>
+                            <h3 class="music__title"></h3>
+                            <p class="music__author"></p>
                         </div>
                         <div class="timer__conteiner">
                             <div class="progress__boll"></div>
-                            <progress class="progressbar" value="0.1" max="1"></progress>
                             <div class="time">
-                                <p class="inicio">00:00</p>
-                                <p class="fim">03:00</p>
+                                <input type="range" min="0" max="0" id="progressbar" step="1"/>
+                                <div class="music__timer">
+                                    <p class="current-duration">00:00</p>
+                                    <p class="total-duration">00:00</p>
+                                </div>
+                                <div class="volume__conteiner">
+                                    <button id="volumeonicon"><i class="fa-solid fa-volume-high"></i></button>
+                                    
+                                    <input class="volume__bar" type="range" min="0" max="100" id="volume-control" step="1" />
+                                </div>
                             </div>
+                            
                         </div>
                     </div>
 
                     <div class="buttons">
-                        <button class="voltar"><i class="fa-solid fa-backward"></i></button>
-                        <button class="play"><i class="fa-solid fa-play"></i></button>
-                        <button class="pause"><i class="fa-solid fa-pause"></i></button>
-                        <button class="avancar"><i class="fa-solid fa-forward"></i></button>
+                        <button id="previous-track" class="voltar" onclick="" ><i class="fa-solid fa-backward"></i></button>
+                        <button class="play" id="playPause"><i class="fa-solid fa-play"></i></button>
+                        <button id="next-track" class="avancar" onclick="" ><i class="fa-solid fa-forward"></i></button>
                     </div>
-                    <audio src=""></audio>
                 </div>
             </li>
             <li class="main__card">
                 <h2>Music list</h2>
                 <ul>
-                    <ol>music name</ol>
+                    <ol><audio controls src=""></audio></ol>
                     <ol>music name</ol>
                     <ol>music name</ol>
                     <ol>music name</ol>
@@ -292,7 +298,9 @@
             <button class="btn__nextb"  onclick="show(+1, 2)">&gt;</button>
         </div>
     </div>
-    <script src="https://kit.fontawesome.com/686cc62c6d.js" crossorigin="anonymous" defer></script>
+    <script src="https://kit.fontawesome.com/686cc62c6d.js" crossorigin="anonymous" defer>
+    </script>
     <script src="script.js" defer></script>
+    <script src="script/index.js" type="module" defer></script>
 </body>
 </html>

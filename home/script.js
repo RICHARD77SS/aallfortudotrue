@@ -10,7 +10,6 @@ let lista2 = document.querySelectorAll('#lista2 li')
 let numDelista = document.querySelectorAll('.numDelista')
 
 numDelista[0].textContent = lista1.length
-numDelista[1].textContent = lista2.length
 
 function show(indice, indicelista) {
   let n = indice
@@ -28,7 +27,4 @@ function show(indice, indicelista) {
   if (indice == -1) {
     listaUl.scrollBy(posicaoXEsquerda, 0)
   }
-}
-
-
-
+};
