@@ -2,11 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--Font-montserrat);
 }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;900&display=swap');
 
 :root {
     --dark-primary: #000;
     --dark-secundary: #333;
+    --Font-montserrat: 'Montserrat', sans-serif;
 }
 
 body {
@@ -118,24 +121,119 @@ body {
     border: 1px solid #fff;
     color: #fff;
     padding: 2rem 0;
+    z-index: 99;
 }
 .card__img {
     width: 298px;
     height: 150px;
 }
+.music__title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+.music__author {
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+}
 #progressbar {
     width: 70%;
-    height: 50px;
+    height: 20px;
+}
+.volume__conteiner {
+    width: auto;
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 2.5rem
 }
 .volume__bar {
-    width: 50px;
+    width: 15px;
+    height: 4px;
+    position: absolute;
+    margin-left: 1.5rem;
+}
+.volume__bar:hover {
+    width: 70px;
+}
+#volumeonicon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
 }
 .music__timer {
     width: 100%;
-    height: 50px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+.buttons {
+    width: 150px;
+    display: flex;
+    transform: translateX(6rem);
+}
+.buttons button {
+    margin: 0 0.2rem;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+.form__addmusic {
+    width: 100%;
+    height: auto;
+}
+.fieldset__addmusic {
+    width: 100%;
+    height: auto;
+    display: grid;
+}
+.label {
+    width: 120px;
+    height: 24px;
+    background-color: var(--dark-secundary);
+    color: #fff;
+    transform: translateY(1.8rem);
+    font-size: .8rem;
+    font-weight: 700;
+    border: 1px solid #fff;
+}
+.label:hover {
+    border: 2px solid #fff;
+    font-size: .9rem;
+}
+.fieldset__addmusic input {
+    width: 290px;
+    height: 20px;
+    margin: .3rem auto;
+    border: none;
+}
+.inputFile{
+    background-color: transparent;
+    color: #fff;
+}
+.musicas__conteiner {
+    width: 100%;
+    margin: .5rem 0;
+}
+.musica {
+    width: 100%;
+    height: 80px;
+    background:#000;
+    padding-top: 1rem;
+}
+.desc {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.musicas__conteiner audio {
+    width: 250px;
+    height: 40px;
 }
 .section__conteiner {
     background-color: #00d;
