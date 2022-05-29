@@ -29,9 +29,9 @@ function createTask() {
 
 function updateScreen() {
   var list = "<ul>";
-
   tasks.forEach(task => {
     list += "<li id-data=" + task.id + ">" + task.data.description + "</li>";
+    list += "<button onclick=deleteTask(this) id-data=" + task.id + ">Delete</button>";
   });
 
   list += "</ul>";
@@ -39,3 +39,6 @@ function updateScreen() {
   document.getElementById("listTodo").innerHTML = list;
   document.getElementById("newTask").value = "";
 }
+
+
+
