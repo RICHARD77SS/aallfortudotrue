@@ -1,44 +1,81 @@
-var tasks = [];
+let banco = []
 
-function idGenerator() {
-  var timeStamp = new Date();
+const getBanco = () => JSON.parse(localStorage.getItem('todoList')) ?? []
 
-  var id =
-    timeStamp.getHours().toString() +
-    timeStamp.getMinutes().toString() +
-    timeStamp.getSeconds().toString() +
-    timeStamp.getMilliseconds().toString();
+const setBanco = (banco) => localStorage.setItem('todoList', JSON.stringify(banco))
+
+const criarItem = (tarefa, status, indice) => {
+  const item = document.createElement('div')
+
+  item.classList.add('todo__item')
+
+  item.innerHTML = `
+    <input type="checkbox" ${status} data-indice=${indice}>
+    <div>${tarefa}</div>
+    <input type="button" value="X" data-indice=${indice}>
+    `
+  document.getElementById('todoList').appendChild(item)
+}
+
+const limparTarefas = () => {
+  const todoList = document.getElementById('todoList')
   
-  return id;
+  while (todoList.firstChild) {
+    todoList.removeChild(todoList.lastChild)
+  }
 }
 
-function createTask() {
-  var taskDescription = document.getElementById("newTask").value
-
-  var task = {
-    id: idGenerator(),
-    data: {
-      description: taskDescription
-    }
-  };
-
-  tasks.push(task);
-
-  updateScreen()
+const atualizarTela = () => {
+  limparTarefas()
+  const banco = getBanco()
+  banco.forEach ((item, indice) => criarItem(item.tarefa, item.status, indice))
 }
 
-function updateScreen() {
-  var list = "<ul>";
-  tasks.forEach(task => {
-    list += "<li id-data=" + task.id + ">" + task.data.description + "</li>";
-    list += "<button onclick=deleteTask(this) id-data=" + task.id + ">Delete</button>";
-  });
-
-  list += "</ul>";
-
-  document.getElementById("listTodo").innerHTML = list;
-  document.getElementById("newTask").value = "";
+const inserirItem = (evento) => {
+  const tecla = evento.key
+  const texto = evento.target.value
+  function addItem() {
+  const banco = getBanco()
+  banco.push({ 'tarefa': texto, 'status': '' })
+  setBanco(banco)
+  atualizarTela()
+}
+  if (tecla === 'Enter' && evento.target.value !== '') {
+    const banco = getBanco()
+    banco.push({ 'tarefa': texto, 'status': '' })
+    setBanco(banco)
+    atualizarTela()
+    evento.target.value = ''
+  }
 }
 
+const removerItem = (indice) => {
+  const banco = getBanco()
+  banco.splice(indice, 1)
+  setBanco(banco)
+  atualizarTela()
+}
 
+const atualizarItem = (indice) => {
+  const banco = getBanco()
+  banco[indice].status = banco[indice].status === '' ? 'checked' : ''
+  setBanco(banco)
+  atualizarTela()
+}
 
+const clickItem = (evento) => {
+  const elemento = evento.target
+
+  if (elemento.type === 'button') {
+    const indice = elemento.dataset.indice
+    removerItem (indice)
+  }else if (elemento.type === 'checkbox') {
+    const indice = elemento.dataset.indice
+    atualizarItem(indice)
+  }
+}
+
+document.getElementById('addItem').addEventListener('keypress', inserirItem)
+document.getElementById('todoList').addEventListener('click', clickItem)
+
+atualizarTela()
