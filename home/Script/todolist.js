@@ -34,18 +34,23 @@ const atualizarTela = () => {
 const inserirItem = (evento) => {
   const tecla = evento.key
   const texto = evento.target.value
-  function addItem() {
-  const banco = getBanco()
-  banco.push({ 'tarefa': texto, 'status': '' })
-  setBanco(banco)
-  atualizarTela()
-}
   if (tecla === 'Enter' && evento.target.value !== '') {
     const banco = getBanco()
     banco.push({ 'tarefa': texto, 'status': '' })
     setBanco(banco)
     atualizarTela()
     evento.target.value = ''
+  }
+}
+
+const inserirItemClick = () => {
+  const texto = document.getElementById('addItem').value
+  if (texto !== '') {
+    const banco = getBanco()
+    banco.push({ 'tarefa': texto, 'status': '' })
+    setBanco(banco)
+    atualizarTela()
+    document.getElementById('addItem').value = ''
   }
 }
 
@@ -74,7 +79,7 @@ const clickItem = (evento) => {
     atualizarItem(indice)
   }
 }
-
+document.getElementById('btnAdd').addEventListener('click', inserirItemClick);
 document.getElementById('addItem').addEventListener('keypress', inserirItem)
 document.getElementById('todoList').addEventListener('click', clickItem)
 
