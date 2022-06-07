@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleRegistroUser.css">
+    <title>Registre-se</title>
+</head>
+<body>
+    <form action="cadastro.php" method="POST" class="form__registro" id="formRegistro">
+        <fieldset class="fieldset__registro">
+            <legend>Registre-se</legend>
+            <label class="label" for="user" >Nome de Usuario</label>
+            <input class="input" name="user" type="text" id="user" minlength="2" maxlength="20"required>
+            <label class="label" for="email">E-mail</label>
+            <input class="input" name="email" type="email" id="email" minlength="10" maxlength="100" required>
+            <label class="label" for="confirmeEmail">Confirme seu E-mail</label>
+            <input class="input" type="email" id="confirmeEmail" minlength="10" maxlength="100" required>
+            <label class="label" for="password" >Cadastre uma Senha</label>
+            <input class="input" name="senha" type="password" id="password" minlength="10" maxlength="200" required>
+            <label class="label" for="confirmePassword">Confirme sua Senha</label>
+            <input class="input" type="password" id="confirmePassword" minlength="10" maxlength="200" required>
+            <div class="buttons">
+                <button class="button cadastrar" type="submi" name="submit">Cadastrar</button><button class="button entrar">Entrar</button>
+
+            </div>
+        </fieldset>
+    </form>
+    <script src="scriptRegistroUser.js">
+        
+    </script>
+</body>
+</html>

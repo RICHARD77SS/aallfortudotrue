@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylelogin.css">
+    <title>Registre-se</title>
+</head>
+
+<body>
+    <form action="testelogin.php" method="POST" class="form__registro" id="register-form">
+        <fieldset class="fieldset__registro">
+            <legend>login</legend>
+            <label class="label" for="email">E-mail</label>
+            <input class="input" name="email" type="email" id="email" minlength="5" maxlength="100"
+                placeholder="Email@prover.com" required>
+            <label class="label" for="password">Senha</label>
+            <input class="input" name="senha" type="password" id="password" minlength="10" maxlength="200"
+                placeholder=" senha@*#&$8989NUMBERS__" required>
+            </div>
+            <div class="buttons">
+                <input class="button cadastrar" type="submit" name="submit" id="btn-submit"
+                    value="entrar">
+        </fieldset>
+    </form>
+    <script src="scriptlogin.js">
+
+    </script>
+</body>
+
+</html>

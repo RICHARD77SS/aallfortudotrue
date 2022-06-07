@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Shizuru&display=swap');
+:root {
+    --shizuru: 'Shizuru', cursive;
+}
+.form__registro {
+    width: 100vw;
+    height: 100vh;
+    background-color: aliceblue;
+}
+.fieldset__registro {
+    width: 60%;
+    height: 90%;
+    margin: auto;
+    display: grid;
+    border: none;
+    text-align: center;
+}
+.fieldset__registro legend {
+    padding: 1.5rem;
+    font-family: var(--shizuru);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.label {
+    margin: .5rem;
+    font-family: var(--shizuru);
+    font-size: 1rem;
+    font-weight: 700;
+}
+.input {
+    width: 60%;
+    border-radius: 5px;
+    border: none;
+    margin: .5rem auto;
+    font-family: var(--shizuru);
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: rgba(255,255, 255);
+    box-shadow: 0 0 5px rgba(0,0, 0, 0.2);
+}
+.button {
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    margin: .5rem;
+    padding: .5rem;
+    font-family: var(--shizuru);
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 5px rgba(0,0, 0, 0.2);
+}

@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
     <title>AallForTudoTrue</title>
     
 </head>
@@ -16,6 +18,7 @@
         <div class="buscar__conteiner">
             <input class="input__buscar" type="search" placeholder="  Buscar"><i class="fa-solid fa-magnifying-glass"></i>
         </div>
+        <div id="buttonDiv"></div>
         <div class="menu">
             <button class="btn__menu">
                 <div class="dash"></div>
@@ -48,16 +51,15 @@
         </ul>
     </nav>
     <main class="main__conteiner">
-        <h1>Main</h1>
+        <h1>AallForTudoTrue</h1>
         <p>...</p>
         <div class="buttons__card">
             <button id="btnPrev" onclick="show(-1, 1)">&lt;</button>
             <button id='btnNext' onclick="show(+1, 1)">&gt;</button>
         </div>
         <ul id="lista1" class="main__content">
-
             <li class="main__card">
-                <h2>Music Player</h2>
+                <h2>Player</h2>
                 <div class="music-player">
                     <div class="music__conteiner">
                         <div id="card__img" class="card__img"></div>
@@ -91,27 +93,28 @@
                    
                 </div>
             </li>
-
             <li class="main__card">
                 <form class="form__addmusic" action="">
                     <fieldset class="fieldset__addmusic">
                         <legend>Lista de musicas</legend>
                         <label class="label" for="addMusic">Add Music</label>
                         <input class="inputFile" type="file" name="musicas" id="addMusic" accept=".mp3" >
-                        <input class="" type="file" name="capa" id="addCapa">
-                        <input type="text" name="" id="musicName" placeholder=" Nome da muisca" id="addMusicName">
-                        <input type="text" name="" id="addArtistName" placeholder=" Nome do artista" id="addArtistName">
+                        <label for="addCapa" class="label">Add Capa</label>
+                        <input class="inputFile" type="file" name="capa" id="addCapa">
+                        <input class="input" type="text" name="" id="musicName" placeholder=" Nome da musica" id="addMusicName">
+                        <input class="input" type="text" name="" id="addArtistName" placeholder=" Nome do artista" id="addArtistName">
                         <button id="btnAdicionar">Adicionar</button>
                     </fieldset>
                 </form>
-                <div class="musicas__conteiner">
+                <div class="musicas__conteiner" id="playlist">
                     <div class="musica">
                         <div class="desc">
-                            <h5 class="musicName">Artist name</h5>
-                            <p class="artistName">Music Name</p>
-                            <img src="" alt="capa">
+                            <h5 id="nomeArtista" class="musicName">Artist name</h5>
+                            <p id="nomeMusica" 
+                            class="artistName">Music Name</p>
+                            <img id="capa"  src="" alt="capa">
+                            <audio id="file" src="" controls></audio>
                         </div>
-                        <audio src="" controls></audio>
                     </div>
                 </div>
 
@@ -119,41 +122,57 @@
 
             <li class="main__card">
                 <h2>Todo list</h2>
-                <input id="addItem" type="text" placeholder="Digite e aperte Enter">
+                <input id="addItem" type="text" placeholder=" Digite e aperte Enter"><button id="btnAdd">enter</button>
                 <div id="todoList" class="listaTarefas">
 
                 </div>
             </li>
             <li class="main__card">
-                <h2>Conversor</h2>
-                <img src="card-img-1" alt="img-card">
-                <details>
-                    <summary>Numeric</summary>
-                    <hr>
-
-                    <label for="browser">Choose your browser from the list:</label>
-                    <input list="browsers" name="browser" id="browser">
-
-                    <label for="result">Conversão</label>
-                    <input type="text" disabled name="resultado" id="">
-
-                    <datalist id="browsers">
-                        <option value="decimal">
-                        <option value="octal">
-                        <option value="float">
-                        <option value="binnary">
-                        <option value="">
-                    </datalist>
-                    <img src="" alt="img">
-                    <button onclick="calcular()">Calcular</button>
-                    <p>.....</p>
-                    <p>.....</p>
-                </details>
-                <p>Basic Description</p>
+                <form action="" method="POST" id='formulario'>
+                    <div class="form__group">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" class="input" autofocus required />
+                    </div>
+                    <div class="form__group">
+                        <label for="idade">Idade</label>
+                        <input type="number" min="0" max="130" name="idade" id="idade" class="input" required />
+                    </div>
+                    <div class="form__group">
+                        <label for="peso">Peso</label>
+                        <input type="number" step="0.01" min="0.0" max="500.0" name="peso" id="peso" class="input" required />
+                    </div>
+                    <div class="form__group">
+                        <label for="altura">Altura</label>
+                        <input type="number" step="0.01" min="0.0" max="2.70" name="altura" id="altura" class="input" required />
+                    </div>
+                    <!-- BOTOES -->
+                    <div class="form__group">
+                        <button class='botao' id='btnEnviar'>
+                            Enviar
+                        </button>
+                        <button type='reset' class='botao' id='btnLimpar'>
+                            Limpar
+                        </button>
+                    </div>
+                
+                    <div class="form__group">
+                        <label for="imc">IMC</label>
+                        <input type="number" name="imc" id="resultadoImc" class="input" value='0.0' disabled />
+                        <span id='aviso'></span>
+                    </div>
+                </form>
+                <div id='resultado'>
+                    <h2 id='id' class='pessoa'>IMC</h2>
+                    <p id='nome' class='pessoa'></p>
+                    <p id='idade' class='pessoa'></p>
+                    <p id='peso' class='pessoa'></p>
+                    <p id='altura' class='pessoa'></p>
+                    <p id='imc' class='pessoa'></p>
+                </div>
             </li>
             <li class="main__card">
                 <h2>calculadora</h2>
-                <img src="card-img-1" alt="img-card">
+                
                 <details>
                     <summary>Mais</summary>
                     <hr>
@@ -166,7 +185,7 @@
             </li>
             <li class="main__card">
                 <h2>Notas pdf</h2>
-                <img src="card-img-1" alt="img-card">
+                
                 <textarea name="pdf-notes" id="" cols="30" rows="10"></textarea>
                 <details>
                     <summary>Mais</summary>
@@ -178,9 +197,15 @@
                 </details>
                 <p>Basic Description</p>
             </li>
+        </ul>
+        <div class="buttons__card">
+            <button id="btnPrev" onclick="show(-1, 2)">&lt;</button>
+            <button id='btnNext' onclick="show(+1, 2)">&gt;</button>
+        </div>
+        <ul id="lista2" class="main__content">
             <li class="main__card">
-                <h2>Card title</h2>
-                <img src="card-img-1" alt="img-card">
+                <h2>calculadora</h2>
+                
                 <details>
                     <summary>Mais</summary>
                     <hr>
@@ -192,8 +217,8 @@
                 <p>Basic Description</p>
             </li>
             <li class="main__card">
-                <h2>Card title</h2>
-                <img src="card-img-1" alt="img-card">
+                <h2>calculadora</h2>
+                
                 <details>
                     <summary>Mais</summary>
                     <hr>
@@ -205,8 +230,8 @@
                 <p>Basic Description</p>
             </li>
             <li class="main__card">
-                <h2>Card title</h2>
-                <img src="card-img-1" alt="img-card">
+                <h2>calculadora</h2>
+                
                 <details>
                     <summary>Mais</summary>
                     <hr>
@@ -218,8 +243,8 @@
                 <p>Basic Description</p>
             </li>
             <li class="main__card">
-                <h2>Card title</h2>
-                <img src="card-img-1" alt="img-card">
+                <h2>calculadora</h2>
+               
                 <details>
                     <summary>Mais</summary>
                     <hr>
@@ -231,8 +256,8 @@
                 <p>Basic Description</p>
             </li>
             <li class="main__card">
-                <h2>Card title</h2>
-                <img src="card-img-1" alt="img-card">
+                <h2>calculadora</h2>
+                
                 <details>
                     <summary>Mais</summary>
                     <hr>
@@ -244,8 +269,8 @@
                 <p>Basic Description</p>
             </li>
             <li class="main__card">
-                <h2>Card title</h2>
-                <img src="card-img-1" alt="img-card">
+                <h2>calculadora</h2>
+                
                 <details>
                     <summary>Mais</summary>
                     <hr>
@@ -289,7 +314,7 @@
         </aside>
     </section>
     <div class="bolls__conteiner">
-        <ul id="lista2" class="bigballs__conteiner">
+        <ul id="lista3" class="bigballs__conteiner">
             <li class="bigballs">ola<button>Ola Aqui</button></li>
             <li class="bigballs"></li>
             <li class="bigballs"></li>
@@ -309,15 +334,43 @@
             
         </ul>
         <div class="buttons__bigballs">
-            <button  onclick="show(-1, 2)">&lt;</button>
-            <button class="btn__nextb"  onclick="show(+1, 2)">&gt;</button>
+            <button  onclick="show(-1, 3)">&lt;</button>
+            <button class="btn__nextb"  onclick="show(+1, 3)">&gt;</button>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/686cc62c6d.js" crossorigin="anonymous" defer>
     </script>
-    <script src="script/script.js" defer></script>
-    <script src="script/index.js" type="module" defer></script>
-    <script src="script/scriptLista.js"></script>
-    <script src="script/todolist.js"></script>
+    <script src="script.js" defer></script>
+    <script src="index.js" type="module" defer></script>
+    <script src="scriptLista.js" defer></script>
+    <script src="todolist.js" defer></script>
+    <script src="calculoimc.js" defer></script>
+    <script src="scripts/googleLogin.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js" defer></script>
+    <script src="scripts/uiAuthFirebase.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDg3i5Z7tqt8j0msYDv2q5sVXMYBE_4l-c",
+            authDomain: "aallfortudotrue.firebaseapp.com",
+            projectId: "aallfortudotrue",
+            storageBucket: "aallfortudotrue.appspot.com",
+            messagingSenderId: "387722585186",
+            appId: "1:387722585186:web:9f0aa992cacc1329661d3b",
+            measurementId: "G-W1Q3YY9JPK"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </body>
 </html>

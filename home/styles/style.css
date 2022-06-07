@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--Font-montserrat);
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;900&display=swap');
+:root {
+    --dark-primary: #000;
+    --dark-secundary: #333;
+    --Font-montserrat: 'Montserrat', sans-serif;
+}
+body {
+    width: 100%;
+    height: 100%;
+}
+/* header*/
+/* header*/
+/* header*/
+.header__conteiner {
+    width: 100%;
+    height: 100px;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo__conteiner {
+    margin-left: 10%;
+}
+.logo__conteiner span {
+    color: #fff;
+}
+.fa-magnifying-glass {
+    color: #fff;
+}
+.menu {
+    margin-right: 10%;
+}
+.btn__menu {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+}
+
+.dash {
+    width: 30px;
+    height: 2px;
+    background-color: aliceblue;
+    margin-bottom: 4px;
+}
+.dash:hover {
+    background-color: #ccc;
+}
+.menu__conteiner {
+    display: none;
+}
+
+/*nav */
+/*nav */
+/*nav */
+.nav__conteiner {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+}
+.nav__list {
+    width: 95%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #444;
+}
+.nav__item {
+    list-style-type: none;
+    margin: 0 10px;
+}
+.nav__link {
+    color: #fff;
+    padding: 10px;
+}
+/*Main*/
+/*Main*/
+/*Main*/
+.main__conteiner {
+    width: 100%;
+    height: auto;
+    background-color: #000;
+    text-align: center;
+    background: url("/home/files/images/bg/img1.jpg") no-repeat center;
+    background-size: cover;
+    
+    padding-top: 2rem;
+}
+h1 {
+    color: #f4f4f4;
+    font-weight: 900;
+    font-size: 3rem;
+    text-shadow: 0px 15px 20px rgba(0, 0, 0, 0.9);
+}
+.main__content {
+    width: 85%;
+    height: 600px;
+    margin: 2rem auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    overflow-x: hidden;
+    scroll-snap-type: mandatory;
+    scroll-behavior: smooth;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 20px solid rgba(0,0,0,0.2);
+    border-radius: 20%;
+}
+.buttons__card {
+    width: 100%;
+    transform: translatey(15rem);
+    position: absolute;
+}
+.buttons__card button {
+    width: 50px;
+    height: 85px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #fff;
+    color: #fff;
+    z-index: 20;
+}
+#btnNext {
+    margin-left: 85%;
+    border-radius: 0% 100% 100% 0% / 100% 50% 50% 0%;
+    transition: all .4s;
+}
+#btnNext:hover {
+    border-radius: 0% 100% 100% 0% / 100% 17% 83% 0%;
+}
+#btnNext:active {
+    background-color: #fff;
+}
+#btnPrev {
+    transition: all .4s;
+    border-radius: 100% 0% 0% 100% / 44% 100% 0% 56%;
+}
+#btnPrev:hover {
+    border-radius: 100% 0% 0% 100% / 17% 0% 100% 83%;
+}
+#btnPrev:active {
+    background-color: #fff;
+}
+/*Card*/
+/*Card*/
+/*Card*/
+.main__card {
+    width: 30%;
+    min-width: 300px;
+    height: 500px;
+    border-radius: 20% 0% 0% 20%;
+    margin: 0 .5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    list-style-type: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 2rem 0;
+    z-index: 99;
+}
+/*Player*/
+.card__img {
+    width: 200px;
+    height: 150px;
+    float: right;
+}
+.music__title {
+    font-size: .9rem;
+    font-weight: bold;
+    margin: 2rem 0rem;
+    
+}
+.music__author {
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+#addItem {
+    width: 100%;
+    height: 30px;
+    background-color: #000;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+/*Lista de musicas*/
+.form__addmusic {
+    width: 100%;
+    height: auto;
+}
+.fieldset__addmusic {
+    width: 100%;
+    height: auto;
+    display: grid;
+    border: none;
+}
+.label {
+    width: 120px;
+    height: 24px;
+    background-color: var(--dark-primary);
+    color: #fff;
+    transform: translateY(1.8rem);
+    font-size: .8rem;
+    font-weight: 700;
+    border: 1px solid #fff;
+}
+.label:hover {
+    border: 2px solid #fff;
+    font-size: .9rem;
+}
+.input {
+    background-color: #000;
+    color: #fff;
+}
+.input::placeholder {
+    color: #fff;
+}
+#btnAdicionar {
+    background-color: #000;
+    color: #fff;
+    border-color: #fff;
+}
+/*Todo list*/
+.todo__item {
+    display: flex;
+    width: 100%;
+    height: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+.todo__item div {
+    width: 50%;
+    height: auto;
+    background-color: #000;
+    border-radius: 5px;
+}
+.todo__item input {
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    font-weight: 900;
+    font-size: 1rem;
+
+}
+#progressbar {
+    width: 70%;
+    height: 20px;
+}
+
+.volume__conteiner {
+    width: auto;
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 2.5rem
+}
+.volume__bar {
+    width: 15px;
+    height: 4px;
+    position: absolute;
+    margin-left: 1.5rem;
+}
+.volume__bar:hover {
+    width: 70px;
+}
+#volumeonicon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+}
+.music__timer {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.buttons {
+    width: 150px;
+    display: flex;
+    transform: translateX(6rem);
+}
+.buttons button {
+    margin: 0 0.2rem;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+.todo__item input:checked {
+    background-color: #ff0000;
+}
+.fieldset__addmusic input {
+    width: 290px;
+    height: 20px;
+    margin: .3rem auto;
+    border: none;
+}
+.inputFile{
+    background-color: transparent;
+    color: #fff;
+}
+.musicas__conteiner {
+    width: 100%;
+    margin: .5rem 0;
+}
+.musica {
+    width: 100%;
+    height: 80px;
+    background:#000;
+    padding-top: 1rem;
+}
+.desc {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.musicas__conteiner audio {
+    width: 250px;
+    height: 40px;
+}
+.section__conteiner {
+    background-color: #00d;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+.article__conteiner {
+    background-color: #990999;
+    width: 60%;
+    height: auto;
+}
+.aside__conteiner {
+    background-color: #000;
+    color: #fff;
+    width: 30%;
+    height: auto;
+}
+.bolls__conteiner {
+    width: 100%;
+    height: auto;
+    background-color: var(--dark-primary);
+    padding: 2rem 0;
+}
+.bigballs__conteiner {
+    width: 95%;
+    height: auto;
+    display: flex;
+    overflow-x: hidden;
+    background-color: #222;
+    margin: 2rem auto;
+}
+.bigballs {
+    min-width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: #fff;
+    color: #ccc;
+    margin: 10px;
+    list-style-type: none;
+}
+.buttons__bigballs {
+    width: 100%;
+    transform: translatey(-1rem);
+    position: absolute;
+    margin-left: 22px;
+
+}
+.buttons__bigballs button {
+    width: 25px;
+    height: 25px;
+    background-color: rgba(255,255,255,0.3);
+}
+.btn__nextb {
+    margin-left: 80%;
+}
